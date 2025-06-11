@@ -6,6 +6,7 @@ import Home from "../Page/Home";
 import Login from "../Page/Login";
 import Registration from "../Page/Registration";
 import AddArtifacts from "../Page/AddArtifacts";
+import ViewDatils from "../Page/ViewDatils";
 
 
 
@@ -16,11 +17,18 @@ export const router = createBrowserRouter([
     children:[
         {
             index: true,
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: ()=> fetch(import.meta.env.VITE_api),
+            hydrateFallbackElement: <h1>Looding.....</h1>
         },
         {
           path: '/add-artifacts',
           element: <AddArtifacts></AddArtifacts>
+        },
+        {
+          path: '/details/:id',
+          loader: ({params})=> fetch(`http://localhost:4000/artifacts/${params.id}`),
+          element: <ViewDatils></ViewDatils>
         },
         {
             path: '/login',

@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Authantication/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddArtifacts = () => {
-    const handleSubmitArtifact = ()=>{
-        console.log("has added");
-    }
+  const { currentUser } = useContext(AuthContext);
+  const handleSubmitArtifact = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const addArtifact = Object.fromEntries(formData.entries());
+    console.log(addArtifact);
+
+    // fetch('http://localhost:4000/artifacts',{
+    //     method: 'POST',
+    //     headers:{
+    //         "content-type": 'application/json'
+    //     },
+    //     body: JSON.stringify(addArtifact)
+    // }).then(res => res.json()).then(data => console.log(data))
+    axios
+      .post(import.meta.env.VITE_api, addArtifact)
+      .then((res) => {
+        if (res.data.acknowledged) {
+          console.log("after gatting data", res.data);
+          Swal.fire({
+            title: "Successfully Added!",
+            icon: "success",
+          });
+        }
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6  shadow-md rounded-xl">
       <h2 className="text-2xl font-bold mb-6">Add New Artifact</h2>
@@ -22,10 +50,7 @@ const AddArtifacts = () => {
           required
           className="input input-bordered w-full"
         />
-        <select
-          name="type"
-          className="select select-bordered w-full"
-        >
+        <select name="type" className="select select-bordered w-full">
           <option>Tools</option>
           <option>Weapons</option>
           <option>Documents</option>
@@ -75,22 +100,25 @@ const AddArtifacts = () => {
         <div className="grid gap-2">
           <input
             type="text"
+            value={currentUser?.displayName}
+            name="authorName"
             readOnly
             className="input input-disabled w-full"
           />
           <input
             type="email"
+            value={currentUser?.email}
+            name="adderEmail"
             readOnly
             className="input input-disabled w-full"
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
+        <button type="submit" className="btn mt-4">
           Add Artifact
         </button>
       </form>
     </div>
   );
-
 };
 
 export default AddArtifacts;
