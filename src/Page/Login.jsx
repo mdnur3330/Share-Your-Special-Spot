@@ -14,7 +14,13 @@ const Login = () => {
     const password = target.password.value;
 
     emailandpassLogin(email, password)
-      .then((res) => console.log(res))
+      .then(() => {
+           Swal.fire({
+                  title: "Welcome back!",
+                  icon: "success",
+                });
+                navigate("/");
+      })
       .catch((error) => {
         console.log(error);
         Swal.fire({
@@ -26,10 +32,17 @@ const Login = () => {
   const handelGoogleLogin = () => {
     loginByEmail()
       .then(() => {
-        navigate("/");
+         Swal.fire({
+                  title: "Welcome back!",
+                  icon: "success",
+                });
+                navigate("/");
       })
       .catch((error) => {
-        console.log(error.message);
+         Swal.fire({
+                  title: error.message,
+                  icon: "error",
+                });
       });
   };
 
@@ -48,6 +61,7 @@ const Login = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               <label className="label">Password</label>
               <input
@@ -55,6 +69,7 @@ const Login = () => {
                 name="password"
                 className="input"
                 placeholder="Password"
+                required
               />
               <button type="submit" className="btn btn-neutral mt-4">
                 Login

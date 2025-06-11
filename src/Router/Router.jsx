@@ -5,6 +5,7 @@ import Root from "../Layout/Root";
 import Home from "../Page/Home";
 import Login from "../Page/Login";
 import Registration from "../Page/Registration";
+import AddArtifacts from "../Page/AddArtifacts";
 
 
 
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
         {
             index: true,
             element: <Home></Home>
+        },
+        {
+          path: '/add-artifacts',
+          element: <AddArtifacts></AddArtifacts>
         },
         {
             path: '/login',
