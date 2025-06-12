@@ -10,7 +10,9 @@ const Root = () => {
             <NavBar></NavBar> 
         </nav>
         <main>
-            <Outlet></Outlet>
+            <section className='w-10/12 mx-auto'>
+                <Outlet></Outlet>
+            </section>
         </main>
         <footer>
 

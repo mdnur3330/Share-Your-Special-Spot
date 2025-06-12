@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <div className="w-10/12 mx-auto border-b border-gray-400 py-5">
-      <div className="flex items-center justify-around">
+      <div className="flex items-center justify-between">
         <div className="flex gap-6 items-center mr-3">
           <div className="dropdown lg:hidden">
             <div
@@ -69,7 +69,7 @@ const NavBar = () => {
             <NavLink>Add Artifacts</NavLink>
           </li>
           <li>
-            <NavLink>Home</NavLink>
+            <NavLink></NavLink>
           </li>
         </ul>
         <div className="">
@@ -150,7 +150,7 @@ const NavBar = () => {
                     <p>{currentUser?.displayName}</p>
                   </li>
                   <li>
-                    <Link>My Artifacts </Link>
+                    <Link to={`/my-artifact/${currentUser?.email}`}>2My Artifacts</Link>
                   </li>
                   <li>
                     <Link>Liked Artifacts Route</Link>

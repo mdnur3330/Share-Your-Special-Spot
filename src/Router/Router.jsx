@@ -7,6 +7,8 @@ import Login from "../Page/Login";
 import Registration from "../Page/Registration";
 import AddArtifacts from "../Page/AddArtifacts";
 import ViewDatils from "../Page/ViewDatils";
+import MyArtifactsPage from "../Page/MyArtifactsPage";
+import Updae from "../Page/Updae";
 
 
 
@@ -29,6 +31,16 @@ export const router = createBrowserRouter([
           path: '/details/:id',
           loader: ({params})=> fetch(`http://localhost:4000/artifacts/${params.id}`),
           element: <ViewDatils></ViewDatils>
+        },
+        {
+          path: '/update/:id',
+          loader: ({params})=> fetch(`http://localhost:4000/artifacts/${params.id}`),
+          element: <Updae></Updae>
+        },
+        {
+          path: '/my-artifact/:email',
+          loader: ({params})=> fetch(`http://localhost:4000/artifacts?email=${params.email}`),
+          element: <MyArtifactsPage></MyArtifactsPage>
         },
         {
             path: '/login',

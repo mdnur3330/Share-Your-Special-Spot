@@ -9,9 +9,12 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div>
-                {artifacts.map(artifact => <AritifactCard artifact={artifact}></AritifactCard>)}
-            </div>
+            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+                {artifacts.map(artifact => ( 
+                    artifact.myArtifact = false,
+                    <AritifactCard artifact={artifact}></AritifactCard>
+                ))}
+            </section>
         </div>
     );
 };
