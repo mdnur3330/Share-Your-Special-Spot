@@ -10,6 +10,7 @@ const AddArtifacts = () => {
     const form = e.target;
     const formData = new FormData(form);
     const addArtifact = Object.fromEntries(formData.entries());
+    addArtifact.likedBy = [];
     console.log(addArtifact);
 
     // fetch('http://localhost:4000/artifacts',{

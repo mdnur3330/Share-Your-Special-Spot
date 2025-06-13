@@ -29,17 +29,17 @@ export const router = createBrowserRouter([
         },
         {
           path: '/details/:id',
-          loader: ({params})=> fetch(`http://localhost:4000/artifacts/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}/${params.id}`),
           element: <ViewDatils></ViewDatils>
         },
         {
           path: '/update/:id',
-          loader: ({params})=> fetch(`http://localhost:4000/artifacts/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}/${params.id}`),
           element: <Updae></Updae>
         },
         {
           path: '/my-artifact/:email',
-          loader: ({params})=> fetch(`http://localhost:4000/artifacts?email=${params.email}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}?email=${params.email}`),
           element: <MyArtifactsPage></MyArtifactsPage>
         },
         {

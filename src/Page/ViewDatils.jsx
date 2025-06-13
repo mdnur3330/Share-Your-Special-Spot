@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../Authantication/AuthProvider';
+import axios from 'axios';
 
 const ViewDatils = () => {
     const singalArtifact = useLoaderData()
-    // loader: ({params})=> false(`http://localhost:4000/artifacts/${}`),
+    const {currentUser} = use(AuthContext)
+   
     console.log(singalArtifact);
-    const {_id, name, image, description, location, context, createdAt, discoveredBy, discoveredAt, authorName, adderEmail, type} = singalArtifact
-    
+    const {_id, name, image, description, location, context, createdAt, discoveredBy, discoveredAt, authorName, adderEmail, type, likedBy} = singalArtifact || {}
 
+    const [likes, setLikes] = useState(likedBy.includes(false))
+    const [count, setCount] = useState(likedBy.length)
+    console.log(count);
+
+    const handelLike = ()=>{
+      axios.patch(`${import.meta.env.VITE_api}/${_id}`,{email: currentUser.email}).then(res =>{
+        console.log(res);
+        const result = res.data.message
+
+          setLikes(result)
+          
+          setCount(prev => (result ? prev + 1 : prev - 1))
+  
+      }).catch(error => console.log(error))
+    }
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 row-gap-10 lg:grid-cols-2">
@@ -97,6 +114,13 @@ const ViewDatils = () => {
                 </span>
                 Artifact Type : {type}
               </li>
+              <li>
+                <div>
+                  <button onClick={handelLike}>{likes ? "Liked": "Like"}</button>
+                  <p>count{count}</p>
+                </div>
+              </li>
+
             </ul>
             <ul className="space-y-3">
               <li className="flex">

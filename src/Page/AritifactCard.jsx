@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const AritifactCard = ({ artifact }) => {
-  const { _id, name, image, description } = artifact;
+  const { _id, name, image, description } = artifact || {};
 
 
   const handelDelet = ()=>{
@@ -28,7 +28,7 @@ swalWithBootstrapButtons.fire({
   reverseButtons: true
 }).then((result) => {
   if (result.isConfirmed) {
-    axios.delete(`http://localhost:4000/artifacts/${_id}`).then(res => console.log("after deleting",res.data)).catch(error => console.log(error))
+    axios.delete(`${import.meta.env.VITE_api}/${_id}`).then(res => console.log("after deleting",res.data)).catch(error => console.log(error))
     swalWithBootstrapButtons.fire({
       title: "Deleted!",
       text: "Your file has been deleted.",
