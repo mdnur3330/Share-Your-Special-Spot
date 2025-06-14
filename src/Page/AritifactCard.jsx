@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const AritifactCard = ({ artifact }) => {
-  const { _id, name, image, description } = artifact || {};
+  const { _id, name, image, description,likedBy } = artifact || {};
 
 
   const handelDelet = ()=>{
@@ -78,7 +78,7 @@ swalWithBootstrapButtons.fire({
                   View Detais
                 </Link>
                 <div>
-                  <p className="border rounded-lg py-2 px-4">Liked {0}</p>
+                  <p className="border rounded-lg py-2 px-4">🖐️ {likedBy.length}</p>
                 </div>
               </div>
             )}

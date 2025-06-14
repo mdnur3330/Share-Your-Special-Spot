@@ -1,12 +1,14 @@
-import React, { use, useState } from 'react';
+import React, { createContext, use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Authantication/AuthProvider';
 import axios from 'axios';
 
+
+  export const CountContext = createContext()
+
 const ViewDatils = () => {
     const singalArtifact = useLoaderData()
     const {currentUser} = use(AuthContext)
-   
     console.log(singalArtifact);
     const {_id, name, image, description, location, context, createdAt, discoveredBy, discoveredAt, authorName, adderEmail, type, likedBy} = singalArtifact || {}
 
@@ -15,6 +17,9 @@ const ViewDatils = () => {
     console.log(count);
 
     const handelLike = ()=>{
+      if(!currentUser.email){
+        return alert("Pless Login")
+      }
       axios.patch(`${import.meta.env.VITE_api}/${_id}`,{email: currentUser.email}).then(res =>{
         console.log(res);
         const result = res.data.message
@@ -115,9 +120,9 @@ const ViewDatils = () => {
                 Artifact Type : {type}
               </li>
               <li>
-                <div>
-                  <button onClick={handelLike}>{likes ? "Liked": "Like"}</button>
-                  <p>count{count}</p>
+                <div className='flex gap-3'>
+                  <button onClick={handelLike}>{likes ? "❤️ Liked": "🤍 Like"}</button>
+                  <p>{count}</p>
                 </div>
               </li>
 

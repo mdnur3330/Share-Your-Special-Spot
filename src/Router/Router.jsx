@@ -9,6 +9,7 @@ import AddArtifacts from "../Page/AddArtifacts";
 import ViewDatils from "../Page/ViewDatils";
 import MyArtifactsPage from "../Page/MyArtifactsPage";
 import Updae from "../Page/Updae";
+import SeexData from "../Page/sexData";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
           path: '/update/:id',
           loader: ({params})=> fetch(`${import.meta.env.VITE_api}/${params.id}`),
           element: <Updae></Updae>
+        },
+        {
+          path: '/data',
+          element: <SeexData></SeexData>
         },
         {
           path: '/my-artifact/:email',
