@@ -9,8 +9,7 @@ const MyArtifactsPage = () => {
 
   return (
     <div>
-      <h4>harea jabo akdin ame {myArtifacts.length}</h4>
-      <section>
+      <section  className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-16  gap-8 justify-between">
         {myArtifacts.map((artifact) => (
             artifact.myArtifact = true,
           <AritifactCard artifact={artifact} key={artifact._id}></AritifactCard>

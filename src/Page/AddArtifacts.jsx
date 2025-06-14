@@ -21,10 +21,11 @@ const AddArtifacts = () => {
     //     body: JSON.stringify(addArtifact)
     // }).then(res => res.json()).then(data => console.log(data))
     axios
-      .post(import.meta.env.VITE_api, addArtifact)
+      .post(`${import.meta.env.VITE_api}artifacts`, addArtifact)
       .then((res) => {
         if (res.data.acknowledged) {
           console.log("after gatting data", res.data);
+          form.reset()
           Swal.fire({
             title: "Successfully Added!",
             icon: "success",

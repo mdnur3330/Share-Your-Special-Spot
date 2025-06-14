@@ -17,7 +17,7 @@ const Updae = () => {
         console.log("has added");
 
 
-        axios.put(`${import.meta.env.VITE_api}/${_id}`,artifactData).then(res => console.log("after puting",res.data)).catch(error => console.log(error))
+        axios.put(`${import.meta.env.VITE_api}/artifacts${_id}`,artifactData).then(res => console.log("after puting",res.data)).catch(error => console.log(error))
     }
     return (
         <div className="max-w-3xl mx-auto mt-10 p-6  shadow-md rounded-xl">

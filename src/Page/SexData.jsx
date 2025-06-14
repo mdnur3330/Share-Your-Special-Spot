@@ -7,7 +7,7 @@ const SeexData = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/popular-artifacts")
+      .get(`${import.meta.env.VITE_api}popular-artifacts`)
       .then((res) => {
         setPopularArtifacts(res.data);
       })
@@ -17,35 +17,47 @@ const SeexData = () => {
   }, []);
 
   return (
-   <>
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {popularArtifacts.map((artifact) => (
-        <div key={artifact._id} className="card bg-base-100 shadow-md">
-          <figure>
-            <img src={artifact.image} alt={artifact.name} />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{artifact.name}</h2>
-            <p>
-              Short description :- <br />
-              {artifact.description.slice(0, 16)}...
-            </p>
-            <div className="flex justify-between mt-2">
-              <span> {artifact.likedBy?.length || 0}</span>
-              <Link className="btn btn-primary" to={`/details/${artifact._id}`}>
-                View Detais
-              </Link>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {popularArtifacts.map((artifact) => (
+          <div key={artifact._id} className="bg-base-100 w-80 shadow-md pb-3  space-y-2.5 border border-gray-300 rounded-lg mx-auto">
+            <figure className="">
+          <img src={artifact.image} alt="Shoes" className="w-full h-50" />
+        </figure>
+            <div className="card-body">
+              <h2 className="card-title">{artifact.name}</h2>
+              <p>
+                Short description :- <br />
+                {artifact.description.split(" ").slice(0, 16).join(" ") +
+                  "...."}
+              </p>
+              <div className="flex justify-between mt-2">
+                <div>
+                  <p className="border rounded-lg py-2 px-4">
+                    🖐️ {artifact.likedBy?.length || 0}
+                  </p>
+                </div>
+
+                <Link
+                  className="btn btn-primary"
+                  to={`/details/${artifact._id}`}
+                >
+                  View Detais
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div> 
-    <div className="text-center mt-6">
-      <Link className="btn btn-primary mx-auto hover:bg-indigo-600" to='/all-artifact'>
-                Show AllArtifact
-              </Link>
-    </div>
-   </>
+        ))}
+      </div>
+      <div className="text-center mt-6">
+        <Link
+          className="btn btn-primary mx-auto hover:bg-indigo-600"
+          to="/all-artifact"
+        >
+          Show AllArtifact
+        </Link>
+      </div>
+    </>
   );
 };
 

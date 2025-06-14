@@ -33,18 +33,18 @@ export const router = createBrowserRouter([
         },
         {
           path :'/all-artifact',
-            loader: ()=> fetch(import.meta.env.VITE_api),
+            loader: ()=> fetch(`${import.meta.env.VITE_api}artifacts/`),
             hydrateFallbackElement: <Looding></Looding>,
             element: <AllArtifact></AllArtifact>
         },
         {
           path: '/details/:id',
-          loader: ({params})=> fetch(`${import.meta.env.VITE_api}/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}artifacts/${params.id}`),
           element: <PriveteRoute><ViewDatils></ViewDatils></PriveteRoute>
         },
         {
           path: '/update/:id',
-          loader: ({params})=> fetch(`${import.meta.env.VITE_api}/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}artifacts/${params.id}`),
           element: <Updae></Updae>
         },
         {
@@ -53,13 +53,13 @@ export const router = createBrowserRouter([
         },
         {
           path: '/liked-items/:email',
-          loader: ({params})=>fetch(`http://localhost:4000/liked-artifacts?email=${params.email}`),
+          loader: ({params})=>fetch(`${import.meta.env.VITE_api}liked-artifacts?email=${params.email}`),
           element: <MyLikedItems></MyLikedItems>,
           hydrateFallbackElement: <Looding></Looding>,
         },
         {
           path: '/my-artifact/:email',
-          loader: ({params})=> fetch(`${import.meta.env.VITE_api}?email=${params.email}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_api}artifacts/?email=${params.email}`),
           element: <PriveteRoute><MyArtifactsPage></MyArtifactsPage></PriveteRoute>
         },
         // {

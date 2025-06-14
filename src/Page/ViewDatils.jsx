@@ -20,7 +20,7 @@ const ViewDatils = () => {
       if(!currentUser.email){
         return alert("Pless Login")
       }
-      axios.patch(`${import.meta.env.VITE_api}/${_id}`,{email: currentUser.email}).then(res =>{
+      axios.patch(`${import.meta.env.VITE_api}/artifacts${_id}`,{email: currentUser.email}).then(res =>{
         console.log(res);
         const result = res.data.message
 
@@ -121,7 +121,7 @@ const ViewDatils = () => {
               </li>
               <li>
                 <div className='flex gap-3'>
-                  <button onClick={handelLike}>{likes ? "❤️ Liked": "🤍 Like"}</button>
+                  <button onClick={handelLike}>{likes ? "❤️ Disliked": "🤍 Like"}</button>
                   <p>{count}</p>
                 </div>
               </li>

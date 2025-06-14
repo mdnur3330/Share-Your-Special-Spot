@@ -1,16 +1,14 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const AritifactCard = ({ artifact }) => {
+  const [isDelete, setIsDelete] = useState(false)
   const { _id, name, image, description,likedBy } = artifact || {};
 
 
   const handelDelet = ()=>{
-
-
-
     const swalWithBootstrapButtons = Swal.mixin({
   customClass: {
     confirmButton: "btn btn-success",
@@ -28,7 +26,11 @@ swalWithBootstrapButtons.fire({
   reverseButtons: true
 }).then((result) => {
   if (result.isConfirmed) {
-    axios.delete(`${import.meta.env.VITE_api}/${_id}`).then(res => console.log("after deleting",res.data)).catch(error => console.log(error))
+    axios.delete(`${import.meta.env.VITE_api}artifacts/${_id}`).then(res =>{ 
+      if(res.data.acknowledged){
+        setIsDelete(true)
+      }
+      console.log("after deleting",res.data)}).catch(error => console.log(error))
     swalWithBootstrapButtons.fire({
       title: "Deleted!",
       text: "Your file has been deleted.",
@@ -45,30 +47,26 @@ swalWithBootstrapButtons.fire({
     });
   }
 });
-
-
-
-
-
-    
   }
+
+
+  if(isDelete) return null
   return (
     <div className="mx-auto">
-      <h1>{artifact.length}</h1>
-      <div className="bg-base-100 w-80 shadow-sm py-6  space-y-2.5">
+      <div className="bg-base-100 w-80 shadow-md border border-gray-400 rounded-lg pb-3  space-y-2.5">
         <figure className="">
           <img src={image} alt="Shoes" className="w-full h-50" />
         </figure>
         <div className="items-center ml-4 space-y-3">
-          <h2 className="text-start">{name}</h2>
-          <p>{description.slice(0,18)}....</p>
+          <h2 className="text-start text-xl font-medium">{name}</h2>
+          <p>{description.split(" ").slice(0,18).join(" ")+"...."}</p>
           <div>
             {artifact.myArtifact ? (
-              <div className=" flex gap-8">
+              <div className=" flex justify-between">
                 <Link className="btn btn-primary" to={`/update/${_id}`}>
                   Update
                 </Link>
-                <button onClick={handelDelet} className="btn btn-primary">
+                <button onClick={handelDelet} className="btn">
                   Delete
                 </button>
               </div>
