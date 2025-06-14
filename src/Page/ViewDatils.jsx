@@ -20,7 +20,7 @@ const ViewDatils = () => {
       if(!currentUser.email){
         return alert("Pless Login")
       }
-      axios.patch(`${import.meta.env.VITE_api}/artifacts${_id}`,{email: currentUser.email}).then(res =>{
+      axios.patch(`${import.meta.env.VITE_api}artifacts/${_id}`,{email: currentUser?.email}).then(res =>{
         console.log(res);
         const result = res.data.message
 
@@ -119,13 +119,6 @@ const ViewDatils = () => {
                 </span>
                 Artifact Type : {type}
               </li>
-              <li>
-                <div className='flex gap-3'>
-                  <button onClick={handelLike}>{likes ? "❤️ Disliked": "🤍 Like"}</button>
-                  <p>{count}</p>
-                </div>
-              </li>
-
             </ul>
             <ul className="space-y-3">
               <li className="flex">
@@ -211,6 +204,10 @@ const ViewDatils = () => {
           />
         </div>
       </div>
+       <div className='flex gap-4 mx-auto mt-5'>
+                  <button className='cursor-pointer text-xl font-bold' onClick={handelLike}>{likes ? "👎 Unlike": "👍 Like"}</button>
+                  <p>{count}</p>
+                </div>
     </div>
   );
 };
