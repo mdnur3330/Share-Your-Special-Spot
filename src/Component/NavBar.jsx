@@ -63,13 +63,13 @@ const NavBar = () => {
             <NavLink>Home</NavLink>
           </li>
           <li>
-            <NavLink>All Artifacts</NavLink>
+            <NavLink to='/all-artifact'>All Artifacts</NavLink>
           </li>
           <li>
             <NavLink to={`liked-items/${currentUser?.email}`}>myLiked Artifacts</NavLink>
           </li>
           <li>
-            <NavLink></NavLink>
+            <NavLink to='add-artifacts'>Add Artifact</NavLink>
           </li>
         </ul>
         <div className="">
@@ -147,10 +147,10 @@ const NavBar = () => {
                   className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <p>{currentUser?.displayName}</p>
+                    <p>{currentUser?.displayName}<CgProfile /></p>
                   </li>
                   <li>
-                    <Link to={`/my-artifact/${currentUser?.email}`}>2My Artifacts</Link>
+                    <Link to={`/my-artifact/${currentUser?.email}`}>My Artifacts</Link>
                   </li>
                   <li>
                     <Link>Liked Artifacts Route</Link>

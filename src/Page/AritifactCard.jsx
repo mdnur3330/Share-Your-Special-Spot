@@ -53,7 +53,7 @@ swalWithBootstrapButtons.fire({
     
   }
   return (
-    <div>
+    <div className="mx-auto">
       <h1>{artifact.length}</h1>
       <div className="bg-base-100 w-80 shadow-sm py-6  space-y-2.5">
         <figure className="">

@@ -11,6 +11,8 @@ import MyArtifactsPage from "../Page/MyArtifactsPage";
 import Updae from "../Page/Updae";
 import SeexData from "../Page/sexData";
 import MyLikedItems from "../Page/MyLikedItems";
+import AllArtifact from "../Page/AllArtifact";
+import PriveteRoute from "../Authantication/PriveteRoute";
 
 
 
@@ -22,12 +24,16 @@ export const router = createBrowserRouter([
         {
             index: true,
             element: <Home></Home>,
-            loader: ()=> fetch(import.meta.env.VITE_api),
-            hydrateFallbackElement: <h1>Looding.....</h1>
         },
         {
           path: '/add-artifacts',
-          element: <AddArtifacts></AddArtifacts>
+          element: <PriveteRoute><AddArtifacts></AddArtifacts></PriveteRoute>
+        },
+        {
+          path :'/all-artifact',
+            loader: ()=> fetch(import.meta.env.VITE_api),
+            hydrateFallbackElement: <h1>Looding.....</h1>,
+            element: <AllArtifact></AllArtifact>
         },
         {
           path: '/details/:id',
@@ -44,7 +50,7 @@ export const router = createBrowserRouter([
           element: <SeexData></SeexData>
         },
         {
-          path: 'liked-items/:email',
+          path: '/liked-items/:email',
           loader: ({params})=>fetch(`http://localhost:4000/liked-artifacts?email=${params.email}`),
           element: <MyLikedItems></MyLikedItems>,
           hydrateFallbackElement: <h4>Looding.....</h4>
