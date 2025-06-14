@@ -58,8 +58,12 @@ export const router = createBrowserRouter([
         {
           path: '/my-artifact/:email',
           loader: ({params})=> fetch(`${import.meta.env.VITE_api}?email=${params.email}`),
-          element: <MyArtifactsPage></MyArtifactsPage>
+          element: <PriveteRoute><MyArtifactsPage></MyArtifactsPage></PriveteRoute>
         },
+        // {
+        //   path: '/liked-artifact',
+        //   element: <MyLikedItems></MyLikedItems>,
+        // },
         {
             path: '/login',
             element: <Login></Login>

@@ -61,7 +61,7 @@ swalWithBootstrapButtons.fire({
         </figure>
         <div className="items-center ml-4 space-y-3">
           <h2 className="text-start">{name}</h2>
-          <p>{description.split(" ").slice(0, 14).join(" ") + "...."}</p>
+          <p>{description.slice(0,18)}....</p>
           <div>
             {artifact.myArtifact ? (
               <div className=" flex gap-8">

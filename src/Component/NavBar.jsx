@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Authantication/AuthProvider";
+import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const NavBar = () => {
             <NavLink to='/all-artifact'>All Artifacts</NavLink>
           </li>
           <li>
-            <NavLink to={`liked-items/${currentUser?.email}`}>myLiked Artifacts</NavLink>
+            {/* <NavLink to={``}>myLiked Artifacts</NavLink> */}
           </li>
           <li>
             <NavLink to='add-artifacts'>Add Artifact</NavLink>
@@ -144,16 +145,16 @@ const NavBar = () => {
 
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-gray-700 text-white"
                 >
                   <li>
-                    <p>{currentUser?.displayName}<CgProfile /></p>
+                    <p><CgProfile />{currentUser?.displayName}</p>
                   </li>
                   <li>
                     <Link to={`/my-artifact/${currentUser?.email}`}>My Artifacts</Link>
                   </li>
                   <li>
-                    <Link>Liked Artifacts Route</Link>
+                    <Link to={`/liked-items/${currentUser?.email}`}>Liked Artifacts Route</Link>
                   </li>
                   <li>
                     <button onClick={() => handellogOut()}>Log Out</button>
