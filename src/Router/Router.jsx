@@ -10,6 +10,7 @@ import ViewDatils from "../Page/ViewDatils";
 import MyArtifactsPage from "../Page/MyArtifactsPage";
 import Updae from "../Page/Updae";
 import SeexData from "../Page/sexData";
+import MyLikedItems from "../Page/MyLikedItems";
 
 
 
@@ -41,6 +42,12 @@ export const router = createBrowserRouter([
         {
           path: '/data',
           element: <SeexData></SeexData>
+        },
+        {
+          path: 'liked-items/:email',
+          loader: ({params})=>fetch(`http://localhost:4000/liked-artifacts?email=${params.email}`),
+          element: <MyLikedItems></MyLikedItems>,
+          hydrateFallbackElement: <h4>Looding.....</h4>
         },
         {
           path: '/my-artifact/:email',

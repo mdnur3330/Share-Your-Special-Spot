@@ -66,7 +66,7 @@ const NavBar = () => {
             <NavLink>All Artifacts</NavLink>
           </li>
           <li>
-            <NavLink>Add Artifacts</NavLink>
+            <NavLink to={`liked-items/${currentUser?.email}`}>myLiked Artifacts</NavLink>
           </li>
           <li>
             <NavLink></NavLink>

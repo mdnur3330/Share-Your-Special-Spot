@@ -13,7 +13,7 @@ const MyArtifactsPage = () => {
       <section>
         {myArtifacts.map((artifact) => (
             artifact.myArtifact = true,
-          <AritifactCard artifact={artifact}></AritifactCard>
+          <AritifactCard artifact={artifact} key={artifact._id}></AritifactCard>
         ))}
       </section>
     </div>
