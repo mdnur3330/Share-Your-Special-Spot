@@ -45,15 +45,15 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Homepage</a>
-              </li>
-              <li>
-                <a>Portfolio</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
+               <li>
+            <NavLink to='/'>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to='/all-artifact'>All Artifacts</NavLink>
+          </li>
+          <li>
+            <NavLink to='add-artifacts'>Add Artifact</NavLink>
+          </li>
             </ul>
           </div>
 
@@ -61,13 +61,10 @@ const NavBar = () => {
         </div>
         <ul className="lg:flex gap-5 hidden">
           <li>
-            <NavLink>Home</NavLink>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
             <NavLink to='/all-artifact'>All Artifacts</NavLink>
-          </li>
-          <li>
-            {/* <NavLink to={``}>myLiked Artifacts</NavLink> */}
           </li>
           <li>
             <NavLink to='add-artifacts'>Add Artifact</NavLink>
