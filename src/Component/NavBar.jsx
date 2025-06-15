@@ -57,7 +57,7 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <h4>histrucal</h4>
+          <h4 className="text-2xl font-bold">ByteVault</h4>
         </div>
         <ul className="lg:flex gap-5 hidden">
           <li>

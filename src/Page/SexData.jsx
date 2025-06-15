@@ -18,7 +18,7 @@ const SeexData = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {popularArtifacts.map((artifact) => (
           <div key={artifact._id} className="bg-base-100 w-80 shadow-md pb-3  space-y-2.5 border border-gray-300 rounded-lg mx-auto">
             <figure className="">

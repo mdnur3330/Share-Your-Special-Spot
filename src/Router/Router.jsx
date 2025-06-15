@@ -48,10 +48,6 @@ export const router = createBrowserRouter([
           element: <Updae></Updae>
         },
         {
-          path: '/data',
-          element: <SeexData></SeexData>
-        },
-        {
           path: '/liked-items/:email',
           loader: ({params})=>fetch(`${import.meta.env.VITE_api}liked-artifacts?email=${params.email}`),
           element: <MyLikedItems></MyLikedItems>,

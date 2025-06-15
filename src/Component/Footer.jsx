@@ -25,18 +25,14 @@ export const Footer = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-              Company
+              ByteVault 
             </span>
           </a>
           <div className="mt-4 lg:max-w-sm">
             <p className="text-sm text-gray-800">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam.
+              ByteVault is a digital gallery preserving iconic computer artifacts—from early machines to vintage tech. Explore the evolution of computing, one byte at a time.
             </p>
-            <p className="mt-4 text-sm text-gray-800">
-              Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae vitae dicta sunt explicabo.
-            </p>
+          
           </div>
         </div>
         <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">

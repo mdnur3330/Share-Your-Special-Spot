@@ -1,6 +1,11 @@
 import React from 'react';
 import Banner from '../Component/banner';
 import SeexData from './sexData';
+import ArtifactHistory from './ArtifactHistory';
+import RecentBlog from './RecentBlog';
+import ArtifactGalary from './ArtifactGalary';
+import FarmarMotion from './FarmarMotion';
+
 const Home = () => {
 
     return (
@@ -9,8 +14,21 @@ const Home = () => {
                 <Banner></Banner>
             </section>
             <section>
+                <FarmarMotion></FarmarMotion>
+            </section>
+            <section>
+                <RecentBlog></RecentBlog>
+            </section>
+            <section>
                 <SeexData></SeexData>
             </section>
+            <section>
+                <ArtifactHistory></ArtifactHistory>
+            </section>
+            <section>
+                <ArtifactGalary></ArtifactGalary>
+            </section>
+             
         </div>
     );
 };
