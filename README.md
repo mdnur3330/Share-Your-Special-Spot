@@ -1,12 +1,55 @@
-# React + Vite
+# ByteVault 🏛️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ByteVault** is a digital gallery web application that showcases a wide range of artifacts — from iconic computer tech to historical and cultural treasures. The platform is designed to allow users to view, explore, and manage artifact data through a clean and interactive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Website
 
-## Expanding the ESLint configuration
+<!-- 🔗 [] -->
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🎯 Purpose
+
+The purpose of ByteVault is to digitally preserve and showcase diverse artifacts, making them accessible to everyone. It helps users:
+
+- Explore historical and tech-related artifacts
+- Read descriptions and view high-quality images
+- Add, edit, or delete artifacts (CRUD functionality)
+- Enjoy a responsive and user-friendly experience
+
+---
+
+## ⚙️ Key Features
+
+- 🔐 **Firebase Authentication** – Secure user login with email & password
+- 📦 **Firebase Hosting** – Live deployment with fast delivery
+- ✅ **CRUD Operations** – Add, edit, delete, and view artifacts
+- 🔍 **Search & Sort** – Easily filter and sort artifact lists
+- 🌙 **Dark/Light Theme Toggle** – User-selectable themes
+- 💬 **Like Button** – Interactive like system
+- 🎨 **Framer Motion** – Smooth animations for better UX
+- 📱 **Fully Responsive** – Optimized for all devices
+
+---
+
+## 🛠️ Tech Stack & NPM Packages
+
+### 🔧 Frontend
+- `React.js` – UI Framework
+- `react-router-dom` – Client-side routing
+- `axios` – HTTP requests
+- `framer-motion` – Animation library
+- `tailwindcss` – Utility-first CSS framework
+- `react-icons` – Icon library
+- `sweetalert2` – Alert and confirmation dialogs
+
+### 🔧 Backend
+- `Node.js` & `Express.js` – Server-side API
+- `MongoDB` – Database for storing artifact data
+
+### 🔧 Firebase
+- Firebase Authentication
+- Firebase Hosting
+
