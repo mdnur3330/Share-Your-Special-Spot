@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Authantication/AuthProvider';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Updae = () => {
     const artifact = useLoaderData()
@@ -17,7 +18,14 @@ const Updae = () => {
         console.log("has added");
 
 
-        axios.put(`${import.meta.env.VITE_api}/artifacts${_id}`,artifactData).then(res => console.log("after puting",res.data)).catch(error => console.log(error))
+        axios.put(`${import.meta.env.VITE_api}artifacts/${_id}`,artifactData).then(res => {
+          if(res.data.acknowledged){
+             Swal.fire({
+                              title: "Artifact Updated!",
+                              icon: "success",
+                            });
+          }
+        }).catch(error => console.log(error))
     }
     return (
         <div className="max-w-3xl mx-auto mt-10 p-6  shadow-md rounded-xl">

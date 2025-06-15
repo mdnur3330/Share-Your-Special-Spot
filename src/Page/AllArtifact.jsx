@@ -46,7 +46,7 @@ const AllArtifact = () => {
   </label>
   <button
     type="submit"
-    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-r-md transition-colors duration-200"
+    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-r-md transition-colors duration-200"
   >
     Search
   </button>

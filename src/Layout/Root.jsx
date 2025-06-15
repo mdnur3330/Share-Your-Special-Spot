@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../Component/NavBar';
 import { Outlet } from 'react-router';
-import { Footer } from '../Component/Footer';
+import Footer from '../Component/Footer';
 
 const Root = () => {
     console.log(import.meta.env.VITE_projectId);

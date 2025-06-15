@@ -19,6 +19,7 @@ const Login = () => {
                   title: "Welcome back!",
                   icon: "success",
                 });
+                target.reset()
                 navigate("/");
       })
       .catch((error) => {
@@ -27,6 +28,7 @@ const Login = () => {
           text: error.message,
           icon: "error",
         });
+        target.reset()
       });
   };
   const handelGoogleLogin = () => {

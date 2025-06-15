@@ -3,7 +3,6 @@ import Banner from '../Component/banner';
 import SeexData from './sexData';
 import ArtifactHistory from './ArtifactHistory';
 import RecentBlog from './RecentBlog';
-import ArtifactGalary from './ArtifactGalary';
 import FarmarMotion from './FarmarMotion';
 
 const Home = () => {
@@ -26,7 +25,7 @@ const Home = () => {
                 <ArtifactHistory></ArtifactHistory>
             </section>
             <section>
-                <ArtifactGalary></ArtifactGalary>
+                
             </section>
              
         </div>

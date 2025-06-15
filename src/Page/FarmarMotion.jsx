@@ -10,6 +10,7 @@ const FarmarMotion = () => {
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
+           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-4xl md:text-5xl font-extrabold text-gray-800"
         >
@@ -19,7 +20,8 @@ const FarmarMotion = () => {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+          // transition={{ duration: 1.2, delay: 0.2 }}      
           className="mt-4 text-lg text-gray-600"
         >
           Discover iconic artifacts and explore
@@ -28,11 +30,18 @@ const FarmarMotion = () => {
         <motion.button
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+          
           className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
         >
           <Link to='/all-artifact'>Browse Artifacts</Link>
         </motion.button>
+        {/* <motion.button
+  initial={{ opacity: 0 }}
+  whileHover={{ backgroundColor: "rgba(220, 220, 220, 1)" }}
+  whileTap={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
+  whileInView={{ opacity: 1 }}
+><Link className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" to='/all-artifact'>Browse Artifacts</Link> </motion.button> */}
       </div>
     </section>
         </div>

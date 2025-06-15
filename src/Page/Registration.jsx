@@ -55,6 +55,7 @@ const Registration = () => {
           text: "Your account successfully created!",
           icon: "success",
         });
+        target.reset()
         navigate("/");
       })
       .catch((error) => {
@@ -63,6 +64,7 @@ const Registration = () => {
           text: error.message,
           icon: "error",
         });
+        target.reset()
       });
   };
 
