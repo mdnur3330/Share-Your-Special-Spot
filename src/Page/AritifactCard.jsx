@@ -30,7 +30,7 @@ swalWithBootstrapButtons.fire({
       if(res.data.acknowledged){
         setIsDelete(true)
       }
-      console.log("after deleting",res.data)}).catch(error => console.log(error))
+     }).catch()
     swalWithBootstrapButtons.fire({
       title: "Deleted!",
       text: "Your file has been deleted.",
@@ -61,7 +61,7 @@ swalWithBootstrapButtons.fire({
           <h2 className="text-start text-xl font-medium">{name}</h2>
           <p>{description.split(" ").slice(0,18).join(" ")+"...."}</p>
           <div>
-            {artifact.myArtifact ? (
+            {artifact.myartifact ? (
               <div className=" flex justify-between">
                 <Link className="btn btn-primary" to={`/update/${_id}`}>
                   Update
@@ -72,7 +72,7 @@ swalWithBootstrapButtons.fire({
               </div>
             ) : (
               <div className="flex gap-18 items-center">
-                <Link className="btn btn-primary" to={`/details/${_id}`}>
+                <Link className="btn bg-blue-600 text-white rounded-lg hover:bg-blue-700 " to={`/details/${_id}`}>
                   View Detais
                 </Link>
                 <div>

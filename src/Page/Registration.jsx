@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import animationData from "../assets/Animation - 1749459183680.json";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
   const { emailandpassregtration, handelUpdateProfile, loginByEmail } =
@@ -47,8 +48,7 @@ const Registration = () => {
       photoURL: photo,
     };
     emailandpassregtration(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         handelUpdateProfile(user);
         Swal.fire({
           title: "Welcome!",
@@ -86,6 +86,9 @@ const Registration = () => {
   };
   return (
     <div className="hero bg-base-100 min-h-screen">
+      <Helmet>
+        <title>SignUp</title>
+      </Helmet>
       <div className="hero-content flex gap-8">
         <div className="card bg-base-100 shrink-0 w-full max-w-sm">
           <div className="card-body">

@@ -1,12 +1,29 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import AritifactCard from './AritifactCard';
+import { Helmet } from 'react-helmet';
+import { AuthContext } from '../Authantication/AuthProvider';
+import axios from 'axios';
 
 const MyLikedItems = () => {
-    const myLikedArtifact = useLoaderData()
-    console.log(myLikedArtifact);
+    const params = useParams()
+      const {currentUser} = useContext(AuthContext)
+      const token = currentUser?.accessToken
+      
+      const [myLikedArtifact, setmyLikedArtifact] = useState([])
+      useEffect(()=>{
+        axios(`${import.meta.env.VITE_api}liked-artifacts?email=${params.email}`,{
+          headers:{
+            authorization: `Bearer ${token}`
+          }
+        }).then(res => setmyLikedArtifact(res.data)).catch(() =>{})
+      },[params,token])
+
     return (
         <section className="min-h-screen px-6 py-10 bg-gray-50">
+          <Helmet>
+        <title>My Linked Artifact</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center text-green-700 mb-8">
         My Liked Items
       </h2>

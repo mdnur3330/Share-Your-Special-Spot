@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Authantication/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Updae = () => {
     const artifact = useLoaderData()
@@ -15,8 +16,6 @@ const Updae = () => {
         const form = e.target;
         const formdata = new FormData(form)
         const artifactData = Object.fromEntries(formdata.entries())
-        console.log("has added");
-
 
         axios.put(`${import.meta.env.VITE_api}artifacts/${_id}`,artifactData).then(res => {
           if(res.data.acknowledged){
@@ -25,10 +24,13 @@ const Updae = () => {
                               icon: "success",
                             });
           }
-        }).catch(error => console.log(error))
+        }).catch(() => {})
     }
     return (
         <div className="max-w-3xl mx-auto mt-10 p-6  shadow-md rounded-xl">
+          <Helmet>
+        <title>Update Artifact</title>
+      </Helmet>
       <h2 className="text-2xl font-bold mb-6">Add New Artifact</h2>
       <form onSubmit={handleSubmitArtifact} className="grid gap-4">
         <input

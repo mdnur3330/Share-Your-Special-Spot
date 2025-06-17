@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useRouteError } from 'react-router';
 
 const ErrorPage = () => {
@@ -7,6 +8,9 @@ const ErrorPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-red-50 px-4 text-center">
+      <Helmet>
+        <title>Error</title>
+      </Helmet>
       <h1 className="text-6xl font-bold text-red-600">Oops!</h1>
       <p className="text-2xl mt-4 text-gray-800">Something went wrong.</p>
       

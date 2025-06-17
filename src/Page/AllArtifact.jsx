@@ -2,9 +2,11 @@ import React, { useRef, useState } from "react";
 import { useLoaderData } from "react-router";
 import AritifactCard from "./AritifactCard";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const AllArtifact = () => {
   const artifacts = useLoaderData();
+
   const searchRef = useRef()
 
   const [artifact, setArtifact] = useState(artifacts)
@@ -16,10 +18,13 @@ const AllArtifact = () => {
     axios(`${import.meta.env.VITE_api}search?name=${searchName}`).then(res => {
       setArtifact(res.data)
       searchRef.current.value = "";
-      console.log(res.data)}).catch(error => console.log(error))
+      }).catch()
   }
   return (
     <div>
+      <Helmet>
+        <title>All Artifact</title>
+      </Helmet>
       <div>
        <form onSubmit={hadelSearch} className="flex items-center max-w-md mx-auto my-6">
   <label className="relative flex-grow">

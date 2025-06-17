@@ -4,28 +4,33 @@ import SeexData from './sexData';
 import ArtifactHistory from './ArtifactHistory';
 import RecentBlog from './RecentBlog';
 import FarmarMotion from './FarmarMotion';
+import ShortArtifact from './ShortArtifact';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
 
     return (
-        <div className='space-y-8'>
+        <div>
+            <Helmet>
+        <title>Home</title>
+      </Helmet>
             <section>
                 <Banner></Banner>
             </section>
             <section>
                 <FarmarMotion></FarmarMotion>
             </section>
-            <section>
+            <section className='py-20'>
                 <RecentBlog></RecentBlog>
             </section>
-            <section>
+            <section className='pb-10'>
                 <SeexData></SeexData>
             </section>
-            <section>
+            <section className='bg-blue-50 py-10 my-10'>
                 <ArtifactHistory></ArtifactHistory>
             </section>
             <section>
-                
+                <ShortArtifact></ShortArtifact>
             </section>
              
         </div>

@@ -17,7 +17,6 @@ import Looding from "../Authantication/Looding";
 import ErrorPage from "../Page/ErrorPage";
 
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -49,19 +48,12 @@ export const router = createBrowserRouter([
         },
         {
           path: '/liked-items/:email',
-          loader: ({params})=>fetch(`${import.meta.env.VITE_api}liked-artifacts?email=${params.email}`),
-          element: <MyLikedItems></MyLikedItems>,
-          hydrateFallbackElement: <Looding></Looding>,
+          element: <MyLikedItems></MyLikedItems>
         },
         {
           path: '/my-artifact/:email',
-          loader: ({params})=> fetch(`${import.meta.env.VITE_api}artifacts/?email=${params.email}`),
           element: <PriveteRoute><MyArtifactsPage></MyArtifactsPage></PriveteRoute>
         },
-        // {
-        //   path: '/liked-artifact',
-        //   element: <MyLikedItems></MyLikedItems>,
-        // },
         {
             path: '/login',
             element: <Login></Login>

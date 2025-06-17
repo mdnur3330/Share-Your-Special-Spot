@@ -36,12 +36,7 @@ const FarmarMotion = () => {
         >
           <Link to='/all-artifact'>Browse Artifacts</Link>
         </motion.button>
-        {/* <motion.button
-  initial={{ opacity: 0 }}
-  whileHover={{ backgroundColor: "rgba(220, 220, 220, 1)" }}
-  whileTap={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
-  whileInView={{ opacity: 1 }}
-><Link className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" to='/all-artifact'>Browse Artifacts</Link> </motion.button> */}
+        
       </div>
     </section>
         </div>

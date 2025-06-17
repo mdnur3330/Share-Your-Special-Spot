@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Authantication/AuthProvider";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { emailandpassLogin, loginByEmail } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation()
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -20,10 +22,10 @@ const Login = () => {
                   icon: "success",
                 });
                 target.reset()
-                navigate("/");
+                navigate(location?.state?.pathname || "/");
       })
       .catch((error) => {
-        console.log(error);
+        
         Swal.fire({
           text: error.message,
           icon: "error",
@@ -38,7 +40,7 @@ const Login = () => {
                   title: "Welcome back!",
                   icon: "success",
                 });
-                navigate("/");
+                 navigate(location?.state?.from.pathname || "/");
       })
       .catch((error) => {
          Swal.fire({
@@ -50,6 +52,9 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card w-full max-w-sm shrink-0">
           <div className="card-body">

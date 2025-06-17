@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Authantication/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddArtifacts = () => {
   const { currentUser } = useContext(AuthContext);
@@ -11,20 +12,13 @@ const AddArtifacts = () => {
     const formData = new FormData(form);
     const addArtifact = Object.fromEntries(formData.entries());
     addArtifact.likedBy = [];
-    console.log(addArtifact);
+    
 
-    // fetch('http://localhost:4000/artifacts',{
-    //     method: 'POST',
-    //     headers:{
-    //         "content-type": 'application/json'
-    //     },
-    //     body: JSON.stringify(addArtifact)
-    // }).then(res => res.json()).then(data => console.log(data))
+
     axios
       .post(`${import.meta.env.VITE_api}artifacts`, addArtifact)
       .then((res) => {
         if (res.data.acknowledged) {
-          console.log("after gatting data", res.data);
           form.reset()
           Swal.fire({
             title: "Successfully Added!",
@@ -32,10 +26,13 @@ const AddArtifacts = () => {
           });
         }
       })
-      .catch((error) => console.log(error));
+      .catch(() =>{});
   };
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6  shadow-md rounded-xl">
+      <Helmet>
+        <title>Add Artifact</title>
+      </Helmet>
       <h2 className="text-2xl font-bold mb-6">Add New Artifact</h2>
       <form onSubmit={handleSubmitArtifact} className="grid gap-4">
         <input

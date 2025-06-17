@@ -10,32 +10,50 @@ const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser]= useState()
 
     const emailandpassLogin =(email, password)=>{
-        setLooding(false)
+        setLooding(true)
         return signInWithEmailAndPassword(auth, email,password)
     }
 
     const emailandpassregtration = (email, password)=>{
-        setLooding(false)
+        setLooding(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
      
 
     const loginByEmail = ()=>{
-        setLooding(false)
+        setLooding(true)
         return signInWithPopup(auth,provider)
     }
 
 
     const logOut = ()=>{
-        setLooding(false)
+        setLooding(true)
         return signOut(auth)
     }
 
 
-    const handelUpdateProfile = (updateProfileData)=>{
-        setLooding(false)
-        return updateProfile(auth.currentUser, updateProfileData)
-    }
+    // const handelUpdateProfile = (updateProfileData)=>{
+    //     setLooding(true)
+    //     return updateProfile(auth.currentUser, updateProfileData).then(()=>{setCurrentUser(...auth.currentUser)}).finally(()=>{
+    //         setLooding(false)
+    //     })
+    // }
+
+
+
+const handelUpdateProfile = (updateProfileData) => {
+    setLooding(true);
+    return updateProfile(auth.currentUser, updateProfileData)
+        .then(() => {
+            setCurrentUser(auth.currentUser); // ✅ ঠিক করা হয়েছে
+        })
+        .finally(() => {
+            setLooding(false);
+        });
+};
+
+
+
 
     useEffect(()=>{
         const subscribe = onAuthStateChanged(auth,(currentUser)=>{

@@ -2,6 +2,7 @@ import React, { createContext, use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Authantication/AuthProvider';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 
   export const CountContext = createContext()
@@ -9,29 +10,32 @@ import axios from 'axios';
 const ViewDatils = () => {
     const singalArtifact = useLoaderData()
     const {currentUser} = use(AuthContext)
-    console.log(singalArtifact);
+
     const {_id, name, image, description, location, context, createdAt, discoveredBy, discoveredAt, authorName, adderEmail, type, likedBy} = singalArtifact || {}
 
-    const [likes, setLikes] = useState(likedBy.includes(false))
+    const [likes, setLikes] = useState(likedBy.includes(currentUser.email)?true:false)
     const [count, setCount] = useState(likedBy.length)
-    console.log(count);
+    
 
     const handelLike = ()=>{
       if(!currentUser.email){
         return alert("Pless Login")
       }
       axios.patch(`${import.meta.env.VITE_api}artifacts/${_id}`,{email: currentUser?.email}).then(res =>{
-        console.log(res);
+   
         const result = res.data.message
 
           setLikes(result)
           
           setCount(prev => (result ? prev + 1 : prev - 1))
   
-      }).catch(error => console.log(error))
+      }).catch(() => {})
     }
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <Helmet>
+        <title>Details</title>
+      </Helmet>
       <div className="grid gap-5 row-gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <div className="max-w-xl mb-6">
@@ -205,7 +209,7 @@ const ViewDatils = () => {
         </div>
       </div>
        <div className='flex gap-4 mx-auto mt-5'>
-                  <button className='cursor-pointer text-xl font-bold' onClick={handelLike}>{likes ? "👎 Unlike": "👍 Like"}</button>
+                  <button className='cursor-pointer text-xl font-bold' onClick={handelLike}>{likes ? "👎 Disliked": "👍 Like"}</button>
                   <p>{count}</p>
                 </div>
     </div>

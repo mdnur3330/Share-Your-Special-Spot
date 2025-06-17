@@ -41,7 +41,7 @@ const SeexData = () => {
                 </div>
 
                 <Link
-                  className="btn btn-primary"
+                  className="btn bg-blue-600 text-white rounded-lg hover:bg-blue-700 "
                   to={`/details/${artifact._id}`}
                 >
                   View Detais
@@ -53,7 +53,7 @@ const SeexData = () => {
       </div>
       <div className="text-center mt-6">
         <Link
-          className="btn btn-primary mx-auto hover:bg-indigo-600"
+          className="btn bg-blue-600 text-white rounded-lg hover:bg-blue-700 "
           to="/all-artifact"
         >
           Show AllArtifact

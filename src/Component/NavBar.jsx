@@ -8,11 +8,10 @@ const NavBar = () => {
   const { currentUser, logOut } = useContext(AuthContext);
   const handellogOut = () => {
     logOut()
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         navigate("/");
       })
-      .catch((error) => console.log(error.message));
+      .catch(() => {});
   };
 
   return (
