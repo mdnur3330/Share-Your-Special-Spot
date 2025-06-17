@@ -32,20 +32,13 @@ const AuthProvider = ({children}) => {
     }
 
 
-    // const handelUpdateProfile = (updateProfileData)=>{
-    //     setLooding(true)
-    //     return updateProfile(auth.currentUser, updateProfileData).then(()=>{setCurrentUser(...auth.currentUser)}).finally(()=>{
-    //         setLooding(false)
-    //     })
-    // }
-
-
 
 const handelUpdateProfile = (updateProfileData) => {
     setLooding(true);
     return updateProfile(auth.currentUser, updateProfileData)
         .then(() => {
-            setCurrentUser(auth.currentUser); // ✅ ঠিক করা হয়েছে
+            setCurrentUser(auth.currentUser);
+            console.log(currentUser);
         })
         .finally(() => {
             setLooding(false);

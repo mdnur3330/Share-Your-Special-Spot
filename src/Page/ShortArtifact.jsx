@@ -53,13 +53,13 @@ const ShortArtifact = () => {
             </svg>
           </div>
           <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+            <h2 className="max-w-lg mb-6 font-sans text-xl md:text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
               "Legacies of
               <span className="inline-block text-deep-purple-accent-400">
                 Ancient Civilizations"
               </span>
             </h2>
-            <p className="text-base text-gray-700 md:text-lg">
+            <p className="text-base md:text-lg">
               This collection features iconic artifacts from ancient cultures:
               the opulent gold adornments of the Andean elite, the dignified
               bronze statue of a Roman emperor, and the divine stone figure of
@@ -143,13 +143,13 @@ const ShortArtifact = () => {
             </svg>
           </div>
           <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+            <h2 className="max-w-lg mb-6 font-sans text-xl md:text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
               "Legacies of
               <span className="inline-block text-deep-purple-accent-400">
                 Ancient Civilizations"
               </span>
             </h2>
-            <p className="text-base text-gray-700 md:text-lg">
+            <p className="text-base  md:text-lg">
               This collection features iconic artifacts from ancient cultures:
               the opulent gold adornments of the Andean elite, the dignified
               bronze statue of a Roman emperor, and the divine stone figure of

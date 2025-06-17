@@ -17,6 +17,7 @@ const Home = () => {
       </Helmet>
             <section>
                 <Banner></Banner>
+
             </section>
             <section>
                 <FarmarMotion></FarmarMotion>

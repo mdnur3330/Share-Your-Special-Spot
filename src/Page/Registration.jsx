@@ -112,8 +112,8 @@ const Registration = () => {
       <div className="hero-content flex gap-8">
         <div className="card bg-base-100 shrink-0 w-full max-w-sm">
           <div className="card-body">
-            <h1 className="text-5xl font-bold">Ragistration now!</h1>
-            <form className="fieldset text-2xl" onSubmit={handelRegistration}>
+            <h1 className="text-xl md:text-4xl font-bold">Ragistration now!</h1>
+            <form className="fieldset text-sm md:text-xl" onSubmit={handelRegistration}>
               <label className="label">Name</label>
               <input
                 type="text"
@@ -231,7 +231,7 @@ const Registration = () => {
             </Link>
           </p>
         </div>
-        <div style={{ width: 300, height: 300 }}>
+        <div className="w-76 h-76 hidden lg:block">
           <Lottie animationData={animationData} loop={true} />
         </div>
       </div>

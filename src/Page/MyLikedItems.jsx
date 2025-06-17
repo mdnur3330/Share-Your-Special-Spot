@@ -20,7 +20,7 @@ const MyLikedItems = () => {
       },[params,token])
 
     return (
-        <section className="min-h-screen px-6 py-10 bg-gray-50">
+        <section className="min-h-screen px-1 lg:px-6 py-10 bg-gray-50">
           <Helmet>
         <title>My Linked Artifact</title>
       </Helmet>

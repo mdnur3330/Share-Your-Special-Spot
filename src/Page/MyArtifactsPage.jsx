@@ -26,7 +26,7 @@ const MyArtifactsPage = () => {
         <title>My Artifac</title>
       </Helmet>
     
-        <section className="min-h-screen px-6 py-10 bg-gray-50">
+        <section className="min-h-screen px-1 lg:px-6 py-10 bg-gray-50">
             <h2 className="text-3xl font-bold text-center text-green-700 mb-8">
               My Artifact Items
             </h2>
@@ -40,7 +40,7 @@ const MyArtifactsPage = () => {
               </div>
             ) : (
               <div className="flex justify-center items-center h-64 bg-white rounded-xl shadow-md">
-                <p className="text-xl text-gray-500">
+                <p className="text-xl text-gray-500 text-center">
                   💔 You don’t have any artifact items
                 </p>
               </div>

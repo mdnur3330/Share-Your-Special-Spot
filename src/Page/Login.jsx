@@ -59,9 +59,9 @@ const Login = () => {
         <div className="card w-full max-w-sm shrink-0">
           <div className="card-body">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Login now!</h1>
+              <h1 className="tex-xl md:text-4xl font-bold">Login now!</h1>
             </div>
-            <form className="fieldset" onSubmit={handelLogin}>
+            <form className="fieldset text-sm lg:text-2xl" onSubmit={handelLogin}>
               <label className="label">Email</label>
               <input
                 type="email"

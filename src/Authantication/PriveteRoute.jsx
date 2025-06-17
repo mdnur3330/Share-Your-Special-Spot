@@ -6,7 +6,7 @@ import { Navigate, useLocation } from 'react-router';
 const PriveteRoute = ({children}) => {
     const {looding, currentUser} = useContext(AuthContext)
     const location = useLocation()
-    console.log(location);
+
     if(looding){
         return <Looding></Looding>
     }

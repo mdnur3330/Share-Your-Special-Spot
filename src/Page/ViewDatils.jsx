@@ -16,7 +16,6 @@ const ViewDatils = () => {
     const [likes, setLikes] = useState(likedBy.includes(currentUser.email)?true:false)
     const [count, setCount] = useState(likedBy.length)
     
-
     const handelLike = ()=>{
       if(!currentUser.email){
         return alert("Pless Login")
@@ -30,6 +29,7 @@ const ViewDatils = () => {
           setCount(prev => (result ? prev + 1 : prev - 1))
   
       }).catch(() => {})
+
     }
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
