@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
         {
           path: '/update/:id',
           loader: ({params})=> fetch(`${import.meta.env.VITE_api}artifacts/${params.id}`),
-          element: <Updae></Updae>
+          element: <PriveteRoute><Updae></Updae></PriveteRoute>
         },
         {
           path: '/liked-items/:email',
