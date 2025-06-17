@@ -12,7 +12,7 @@ const FarmarMotion = () => {
           animate={{ opacity: 1, y: 0 }}
            whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-4xl md:text-5xl font-extrabold text-gray-800"
+          className="text-2xl md:text-4xl font-extrabold text-gray-800"
         >
           Welcome to <span className="text-blue-600">ByteVault</span>
         </motion.h1>

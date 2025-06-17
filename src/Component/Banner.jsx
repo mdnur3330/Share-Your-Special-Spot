@@ -18,7 +18,7 @@ export default function Banner() {
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="flex flex-col items-center justify-between xl:flex-row">
                 <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-3xl font-bold tracking-tightsm:text-4xl sm:leading-none">
+                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-xl md:text-3xl font-bold tracking-tightsm:text-4xl sm:leading-none">
                     <br className="hidden md:block" /> "Equestrian Statue of Frederick William IV"
                   </h2>
                   <p className="max-w-xl mb-4 text-base text-gray-500 md:text-lg">
@@ -63,7 +63,7 @@ export default function Banner() {
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="flex flex-col items-center justify-between xl:flex-row">
                 <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-3xl font-bold tracking-tightsm:text-4xl sm:leading-none">
+                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-xl md:text-3xlfont-bold tracking-tightsm:text-4xl sm:leading-none">
                     <br className="hidden md:block" /> " Roman Togate Statue (Headless)"
                   </h2>
                   <p className="max-w-xl mb-4 text-base text-gray-500 md:text-lg">
@@ -108,7 +108,7 @@ export default function Banner() {
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="flex flex-col items-center justify-between xl:flex-row">
                 <div className="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-3xl font-bold tracking-tightsm:text-4xl sm:leading-none">
+                  <h2 className="max-w-lg text-gray-600 mb-6 font-sans text-xl md:text-3xl font-bold tracking-tightsm:text-4xl sm:leading-none">
                     <br className="hidden md:block" /> "Victorian Era Tailor’s Mannequin"
                   </h2>
                   <p className="max-w-xl mb-4 text-base text-gray-500 md:text-lg">

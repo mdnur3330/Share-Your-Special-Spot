@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const AritifactCard = ({ artifact }) => {
   const [isDelete, setIsDelete] = useState(false)
   const { _id, name, image, description,likedBy } = artifact || {};
+  const navigate = useNavigate()
 
 
   const handelDelet = ()=>{
@@ -27,8 +28,9 @@ swalWithBootstrapButtons.fire({
 }).then((result) => {
   if (result.isConfirmed) {
     axios.delete(`${import.meta.env.VITE_api}artifacts/${_id}`).then(res =>{ 
-      if(res.data.acknowledged){
+      if(res.data.deletedCount > 0){
         setIsDelete(true)
+        navigate('/all-artifact')
       }
      }).catch()
     swalWithBootstrapButtons.fire({
@@ -66,7 +68,7 @@ swalWithBootstrapButtons.fire({
                 <Link className="btn btn-primary" to={`/update/${_id}`}>
                   Update
                 </Link>
-                <button onClick={handelDelet} className="btn">
+                <button onClick={handelDelet} className="btn mr-2">
                   Delete
                 </button>
               </div>

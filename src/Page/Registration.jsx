@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../Authantication/AuthProvider";
 import Lottie from "lottie-react";
 import animationData from "../assets/Animation - 1749459183680.json";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { IoEye } from "react-icons/io5";
+import { IoMdEyeOff } from "react-icons/io";
 
 const Registration = () => {
   const { emailandpassregtration, handelUpdateProfile, loginByEmail } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const [hideShow, setHideShow] = useState(false);
+  const [hideShowConfirm, setHideShowConfirm] = useState(false);
 
   const handelRegistration = (e) => {
     e.preventDefault();
@@ -18,6 +22,7 @@ const Registration = () => {
     const photo = target.photo.value;
     const email = target.email.value;
     const password = target.password.value;
+    const confirm = target.confirm.value;
 
     if (password.length < 6) {
       return Swal.fire({
@@ -39,6 +44,13 @@ const Registration = () => {
       return Swal.fire({
         icon: "error",
         text: "Invalid password! Needs at least one Lowercase letter!",
+        color: "#333",
+      });
+    }
+    if (password !== confirm) {
+      return Swal.fire({
+        icon: "error",
+        text: "Password and confirm password must be same!",
         color: "#333",
       });
     }
@@ -84,6 +96,14 @@ const Registration = () => {
                        });
       });
   };
+
+
+   const handelPasswordHideShow = () => {
+    setHideShow(!hideShow);
+  };
+  const handelConfirmPasswordHideShow = () => {
+    setHideShowConfirm(!hideShowConfirm);
+  };
   return (
     <div className="hero bg-base-100 min-h-screen">
       <Helmet>
@@ -118,14 +138,50 @@ const Registration = () => {
                 placeholder="Email"
                 required
               />
-              <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input"
-                placeholder="Password"
-                required
-              />
+              <div className="relative">
+                  <label className="label text-xl">Password</label>
+                  <input
+                    type={hideShow ? "text" : "password"}
+                    name="password"
+                    className="input relative text-xl"
+                    placeholder="*******"
+                    required
+                  />
+                  <div
+                    onClick={handelPasswordHideShow}
+                    className="top-10 right-7 z-2 absolute cursor-pointer"
+                  >
+                    {hideShow ? (
+                      
+                    <IoMdEyeOff size={20}/>
+                    ) : (
+                       <IoEye size={20}/>
+                    )}
+                  </div>
+                </div>
+                <div className="relative">
+                  <label className="label text-xl">Confirm Password</label>
+                  <input
+                    type={hideShowConfirm ? "text" : "password"}
+                    name="confirm"
+                    className="input relative text-xl"
+                    placeholder="*******"
+                    required
+                  />
+                  <div
+                    onClick={handelConfirmPasswordHideShow}
+                    className="top-10 right-7 z-2 absolute cursor-pointer"
+                  >
+                    {hideShowConfirm ? (
+                    
+                    <IoMdEyeOff size={20}/>
+                    ) : (
+                 <IoEye size={20}/>
+                        
+                    )}
+                  </div>
+                </div>
+
 
               <button type="submit" className="btn btn-neutral mt-4 text-xl">
                 Ragistiation

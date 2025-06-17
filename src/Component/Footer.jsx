@@ -4,17 +4,17 @@ import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-        <nav className="grid grid-flow-col gap-4">
+    <div className="mt-14">
+      <footer className="footer footer-horizontal footer-center bg-blue-100 text-base-content rounded p-10">
+        <nav className="grid grid-flow-col gap-4  md:text-xl">
            <li>
-                      <NavLink to='/'>Home</NavLink>
+                      <NavLink to='/' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Home</NavLink>
                     </li>
                     <li>
-                      <NavLink to='/all-artifact'>All Artifacts</NavLink>
+                      <NavLink to='/all-artifact' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>All Artifacts</NavLink>
                     </li>
                     <li>
-                      <NavLink to='add-artifacts'>Add Artifact</NavLink>
+                      <NavLink to='add-artifacts' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Add Artifact</NavLink>
                     </li>
         </nav>
         <div>

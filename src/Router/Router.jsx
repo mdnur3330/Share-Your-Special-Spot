@@ -9,7 +9,6 @@ import AddArtifacts from "../Page/AddArtifacts";
 import ViewDatils from "../Page/ViewDatils";
 import MyArtifactsPage from "../Page/MyArtifactsPage";
 import Updae from "../Page/Updae";
-import SeexData from "../Page/sexData";
 import MyLikedItems from "../Page/MyLikedItems";
 import AllArtifact from "../Page/AllArtifact";
 import PriveteRoute from "../Authantication/PriveteRoute";

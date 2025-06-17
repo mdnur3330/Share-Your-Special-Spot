@@ -15,7 +15,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto border-b border-gray-400 py-5">
+    <div className="w-10/12 mx-auto border-b border-gray-400 py-8">
       <div className="flex items-center justify-between">
         <div className="flex gap-6 items-center mr-3">
           <div className="dropdown lg:hidden">
@@ -45,28 +45,28 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
                <li>
-            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Home</NavLink>
           </li>
           <li>
-            <NavLink to='/all-artifact'>All Artifacts</NavLink>
+            <NavLink to='/all-artifact' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>All Artifacts</NavLink>
           </li>
           <li>
-            <NavLink to='add-artifacts'>Add Artifact</NavLink>
+            <NavLink to='add-artifacts' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Add Artifact</NavLink>
           </li>
             </ul>
           </div>
 
           <h4 className="text-2xl font-bold">ByteVault</h4>
         </div>
-        <ul className="lg:flex gap-5 hidden">
+        <ul className="lg:flex gap-5 hidden text-xl md:text-2xl">
           <li>
-            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Home</NavLink>
           </li>
           <li>
-            <NavLink to='/all-artifact'>All Artifacts</NavLink>
+            <NavLink to='/all-artifact' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>All Artifacts</NavLink>
           </li>
           <li>
-            <NavLink to='add-artifacts'>Add Artifact</NavLink>
+            <NavLink to='add-artifacts' className={({isActive})=> isActive? 'text-blue-500 font-bold' : 'text-gray-700'}>Add Artifact</NavLink>
           </li>
         </ul>
         <div className="">
@@ -119,11 +119,7 @@ const NavBar = () => {
               </svg>
             </label>
 
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered w-24 md:w-auto"
-            />
+            
             {currentUser ? (
               <div className="dropdown dropdown-end">
                 <div

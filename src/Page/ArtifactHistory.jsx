@@ -4,7 +4,7 @@ const ArtifactHistory = () => {
     return (
         <div>
             <section className="my-16 px-4">
-  <h2 className="text-3xl font-bold text-center mb-8">🕰️ Artifact Timeline</h2>
+  <h2 className="text-xl md:text-3xl font-bold text-center mb-8">🕰️ Artifact Timeline</h2>
   <ol className="border-l-4 border-blue-600 pl-6 space-y-6">
     {[
       { year: "1200 BC", event: "Ancient Pottery Discovered in Egypt" },
