@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import item1 from "../assets/photo/item1.jpg";
-import item2 from "../assets/photo/item2.jpg";
-import item3 from "../assets/photo/item3.jpg";
+// import item1 from "../assets/photo/item1.jpg";
+// import item2 from "../assets/photo/item2.jpg";
+// import item3 from "../assets/photo/item3.jpg";
+import banner from '../assets/photo/Share your.png'
 
 
 // import required modules
@@ -12,7 +13,7 @@ import { Navigation } from "swiper/modules";
 export default function Banner() {
   return (
     <>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide>
           <div className="overflow-hidden bg-green-50">
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -150,7 +151,10 @@ export default function Banner() {
             </div>
           </div>
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
+      <div className="">
+        <img className=" w-full h-[65vh] inset-0 object-center z-0" src={banner} alt="" />
+      </div>
     </>
   );
 }

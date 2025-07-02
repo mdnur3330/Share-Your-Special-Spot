@@ -7,11 +7,11 @@ const Root = () => {
 
     return (
         <>
-        <nav>
+        <nav className='bg-blue-300 w-full'>
             <NavBar></NavBar> 
         </nav>
         <main>
-            <section className='w-10/12 mx-auto'>
+            <section className=' mx-auto'>
                 <Outlet></Outlet>
             </section>
         </main>

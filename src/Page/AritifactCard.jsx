@@ -67,8 +67,8 @@ const AritifactCard = ({ artifact }) => {
           <img src={image} alt="Artifact" className="w-full h-50" />
         </figure>
         <div className="items-center ml-4 space-y-3">
-          <h2 className="text-start text-xl font-medium">{name}</h2>
-          <p>{description.split(" ").slice(0, 18).join(" ") + "...."}</p>
+          <h2 className="text-start text-xl font-medium">{name.split(" ").slice(0, 1).join(" ") + "...."}</h2>
+          <p>{description.split(" ").slice(0, 4).join(" ") + "...."}</p>
           <div>
             {artifact.myartifact ? (
               <div className="flex justify-between">

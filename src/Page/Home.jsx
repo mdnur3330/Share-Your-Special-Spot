@@ -19,9 +19,9 @@ const Home = () => {
                 <Banner></Banner>
 
             </section>
-            <section>
+            {/* <section>
                 <FarmarMotion></FarmarMotion>
-            </section>
+            </section> */}
             <section className='py-20'>
                <ShortArtifact></ShortArtifact>
             </section>
