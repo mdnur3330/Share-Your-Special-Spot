@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import logo1 from '../assets/photo/see-even-2407631_1280.jpg'
+import logo2 from '../assets/photo/clouds-3876901_1280.jpg'
+import logo3 from '../assets/photo/coxs-bazar-2885043_1280.jpg'
 
 const stories = [
   {
@@ -9,21 +12,21 @@ const stories = [
     name: "Nusrat Jahan",
     place: "Sajek Valley",
     story: "The misty mornings and green hills of Sajek still touch my soul. Truly a hidden paradise in Bangladesh.",
-    image: "https://i.ibb.co/8syS7Yq/sajek.jpg"
+    image: logo2
   },
   {
     id: 2,
     name: "Rakib Hasan",
     place: "Saint Martin's Island",
     story: "The crystal blue water and peaceful beach vibes made it the most relaxing trip of my life.",
-    image: "https://i.ibb.co/3T6fwcq/saintmartin.jpg"
+    image: logo3
   },
   {
     id: 3,
     name: "Mahin Islam",
     place: "Sundarbans",
     story: "Cruising through the river and hearing the sounds of the forest was truly thrilling and peaceful at the same time.",
-    image: "https://i.ibb.co/QJcwLWD/sundarban.jpg"
+    image: logo1
   },
 ];
 

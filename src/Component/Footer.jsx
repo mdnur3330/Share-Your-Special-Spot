@@ -78,10 +78,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left: Logo + About */}
         <div>
-          <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">ByteVault</h2>
+          <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">WanderNest</h2>
           <p className="text-gray-300 text-sm leading-relaxed">
-            ByteVault is a digital gallery archiving remarkable artifacts — from vintage technology to historical objects. 
-            Discover the story of human innovation and culture, one artifact at a time.
+           Join a global community of explorers sharing hidden gems, stunning landscapes, and unforgettable travel moments. Inspire and be inspired — your next adventure starts here.
           </p>
         </div>
 
@@ -110,7 +109,7 @@ const Footer = () => {
                     : "text-gray-300 hover:text-yellow-400 transition"
                 }
               >
-                All Artifacts
+                All Spot
               </NavLink>
             </li>
             <li>
@@ -122,7 +121,7 @@ const Footer = () => {
                     : "text-gray-300 hover:text-yellow-400 transition"
                 }
               >
-                Add Artifact
+                Add Spot
               </NavLink>
             </li>
           </ul>
