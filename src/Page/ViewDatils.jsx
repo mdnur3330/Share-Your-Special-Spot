@@ -16,9 +16,8 @@ const ViewDatils = () => {
     name,
     image,
     description,
-    location,
-    authorName,
     adderEmail,
+    location,
     likedBy,
   } = singalArtifact || {};
 
@@ -69,10 +68,6 @@ const ViewDatils = () => {
               </div>
               <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
                 <p className="font-semibold text-gray-700">Added By</p>
-                <p className="text-sm text-gray-600">{authorName}</p>
-              </div>
-              <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
-                <p className="font-semibold text-gray-700">Adder Email</p>
                 <p className="text-sm text-gray-600">{adderEmail}</p>
               </div>
             </div>

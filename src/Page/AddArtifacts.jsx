@@ -15,6 +15,7 @@ const AddSpotForm = () => {
      const formData = new FormData(form);
      const addArtifact = Object.fromEntries(formData.entries());
     addArtifact.likedBy = [];
+    addArtifact.adderEmail = currentUser.email;
     console.log(addArtifact);
     try {
        const res = await axiosSecure.post(`/artifacts?email=${currentUser.email}`, addArtifact);
@@ -29,18 +30,6 @@ const AddSpotForm = () => {
        });
      }
    };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
