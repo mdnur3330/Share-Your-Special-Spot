@@ -1,38 +1,66 @@
+
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const RecentBlog = () => {
-    return (
-       
-            <section className="my-16 px-4 py-16">
-  <h2 className="text-xl md:text-3xl font-bold text-center mb-8">📰 Recent Discoveries & News</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {[
-      {
-        title: "Rare Buddhist Manuscript Found",
-        date: "June 2025",
-        desc: "A 2,000-year-old manuscript was found in Nepal, shedding light on ancient teachings.",
-      },
-      {
-        title: "Ancient Tools in Amazon",
-        date: "May 2025",
-        desc: "Researchers discovered pre-Columbian tools used by indigenous tribes.",
-      },
-      {
-        title: "Underground City in Turkey",
-        date: "April 2025",
-        desc: "A massive city was uncovered beneath Cappadocia, estimated to house 20,000 people.",
-      },
-    ].map((news, i) => (
-      <div key={i} className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="font-bold text-lg mb-2">{news.title}</h3>
-        <p className="text-sm text-gray-500 mb-1">{news.date}</p>
-        <p className="text-gray-700">{news.desc}</p>
+const stories = [
+  {
+    id: 1,
+    name: "Nusrat Jahan",
+    place: "Sajek Valley",
+    story: "The misty mornings and green hills of Sajek still touch my soul. Truly a hidden paradise in Bangladesh.",
+    image: "https://i.ibb.co/8syS7Yq/sajek.jpg"
+  },
+  {
+    id: 2,
+    name: "Rakib Hasan",
+    place: "Saint Martin's Island",
+    story: "The crystal blue water and peaceful beach vibes made it the most relaxing trip of my life.",
+    image: "https://i.ibb.co/3T6fwcq/saintmartin.jpg"
+  },
+  {
+    id: 3,
+    name: "Mahin Islam",
+    place: "Sundarbans",
+    story: "Cruising through the river and hearing the sounds of the forest was truly thrilling and peaceful at the same time.",
+    image: "https://i.ibb.co/QJcwLWD/sundarban.jpg"
+  },
+];
+
+const CommunityStories = () => {
+  return (
+    <div className="bg-[#fff8ee] py-20 px-4 md:px-10">
+      <h2 className="text-4xl md:text-5xl text-center font-bold text-[#1b1f3b] mb-14">
+        Real Traveler <span className="text-yellow-500">Experiences</span>
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {stories.map((story, index) => (
+          <motion.div
+            key={story.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="bg-white rounded-3xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-yellow-100"
+          >
+            <img
+              src={story.image}
+              alt={story.place}
+              className="w-full h-56 object-cover rounded-t-3xl"
+            />
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-[#1b1f3b]">{story.name}</h3>
+              <p className="text-yellow-600 font-medium mb-2">{story.place}</p>
+              <p className="text-gray-700 text-[15px] leading-relaxed">
+                {story.story}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    ))}
-  </div>
-</section>
-
-    );
+    </div>
+  );
 };
 
-export default RecentBlog;
+export default CommunityStories;

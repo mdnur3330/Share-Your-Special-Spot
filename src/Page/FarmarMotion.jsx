@@ -1,46 +1,45 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router';
+// components/BangladeshMap.jsx
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 
-const FarmarMotion = () => {
-    return (
-        <div>
-             <section className="bg-gray-100 py-20 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-2xl md:text-4xl font-extrabold text-gray-800"
-        >
-          Welcome to <span className="text-blue-600">ByteVault</span>
-        </motion.h1>
+// Custom icon
+const customIcon = new L.Icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+  iconSize: [30, 30],
+  iconAnchor: [15, 30],
+  popupAnchor: [0, -30],
+});
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-          // transition={{ duration: 1.2, delay: 0.2 }}      
-          className="mt-4 text-lg text-gray-600"
-        >
-          Discover iconic artifacts and explore
-        </motion.p>
+const locations = [
+  { name: "Cox's Bazar", lat: 21.4272, lng: 92.0058 },
+  { name: "Sajek Valley", lat: 23.3811, lng: 92.2931 },
+  { name: "Saint Martin", lat: 20.6050, lng: 92.3221 },
+  { name: "Sundarbans", lat: 22.0173, lng: 89.5020 },
+  { name: "Nilgiri, Bandarban", lat: 21.7622, lng: 92.3694 },
+  { name: "Mahasthangarh", lat: 24.9573, lng: 89.3454 },
+  { name: "Sonargaon", lat: 23.6434, lng: 90.5989 },
+  { name: "Aamjhupi Meherpur", lat: 23.7584, lng: 88.6316 },
+];
 
-        <motion.button
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-          
-          className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-        >
-          <Link to='/all-artifact'>Browse Artifacts</Link>
-        </motion.button>
-        
-      </div>
-    </section>
-        </div>
-    );
+const BangladeshMap = () => {
+  return (
+    <div className="w-full h-[600px] rounded-xl shadow-lg overflow-hidden border border-blue-300">
+      <MapContainer center={[23.6850, 90.3563]} zoom={6} scrollWheelZoom={true} className="h-full w-full">
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {locations.map((loc, idx) => (
+          <Marker key={idx} position={[loc.lat, loc.lng]} icon={customIcon}>
+            <Popup>
+              <span className="font-semibold text-blue-700">{loc.name}</span>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
+  );
 };
 
-export default FarmarMotion;
+export default BangladeshMap;

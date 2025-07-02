@@ -7,7 +7,7 @@ const Root = () => {
 
     return (
         <>
-        <nav className='bg-blue-300 w-full'>
+        <nav className='bg-blue-400 w-full'>
             <NavBar></NavBar> 
         </nav>
         <main>

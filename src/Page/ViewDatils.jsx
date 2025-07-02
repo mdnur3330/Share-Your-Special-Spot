@@ -1,220 +1,127 @@
+
 import React, { createContext, use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Authantication/AuthProvider';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-
-  export const CountContext = createContext()
+export const CountContext = createContext();
 
 const ViewDatils = () => {
-    const singalArtifact = useLoaderData()
-    const {currentUser} = use(AuthContext)
+  const singalArtifact = useLoaderData();
+  const { currentUser } = use(AuthContext);
 
-    const {_id, name, image, description, location, context, createdAt, discoveredBy, discoveredAt, authorName, adderEmail, type, likedBy} = singalArtifact || {}
+  const {
+    _id,
+    name,
+    image,
+    description,
+    location,
+    context,
+    createdAt,
+    discoveredBy,
+    discoveredAt,
+    authorName,
+    adderEmail,
+    type,
+    likedBy,
+  } = singalArtifact || {};
 
-    const [likes, setLikes] = useState(likedBy.includes(currentUser.email)?true:false)
-    const [count, setCount] = useState(likedBy.length)
-    
-    const handelLike = ()=>{
-      if(!currentUser.email){
-        return alert("Pless Login")
-      }
-      axios.patch(`${import.meta.env.VITE_api}artifacts/${_id}`,{email: currentUser?.email}).then(res =>{
-   
-        const result = res.data.message
+  const [likes, setLikes] = useState(likedBy.includes(currentUser.email));
+  const [count, setCount] = useState(likedBy.length);
 
-          setLikes(result)
-          
-          setCount(prev => (result ? prev + 1 : prev - 1))
-  
-      }).catch(() => {})
-
+  const handelLike = () => {
+    if (!currentUser.email) {
+      return alert('Please login');
     }
+    axios
+      .patch(`${import.meta.env.VITE_api}artifacts/${_id}`, {
+        email: currentUser?.email,
+      })
+      .then((res) => {
+        const result = res.data.message;
+        setLikes(result);
+        setCount((prev) => (result ? prev + 1 : prev - 1));
+      })
+      .catch(() => {});
+  };
+
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="bg-gradient-to-b from-[#d0ecff] via-white to-[#d0ecff] px-4 py-16 mx-auto max-w-screen-xl">
       <Helmet>
-        <title>Details</title>
+        <title>Artifact Details</title>
       </Helmet>
-      <div className="grid gap-5 row-gap-10 lg:grid-cols-2">
-        <div className="flex flex-col justify-center">
-          <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
-              {name}
-            </h2>
-            <p className="text-base text-gray-700 md:text-lg">
-             <span className='text-2xl underline'>Description:- </span><br />{description}
-            </p>
-          </div>
-          <p className="mb-4 text-sm font-bold tracking-widest uppercase">
-            Features
+
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#045b96]">🧾 Artifact Full Details</h2>
+        <p className="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+          Explore complete information about this historical artifact. All the data has been shared by real contributors.
+        </p>
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-2 items-center">
+        <div className="space-y-5">
+          <h3 className="text-3xl font-bold text-[#045b96]">{name}</h3>
+          <p className="text-gray-700 text-[16px] leading-relaxed">
+            <span className="font-semibold text-xl text-[#085693] underline">Description:</span> <br />{description}
           </p>
-          <div className="grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
-            <ul className="space-y-3">
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Historical Context: {context}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Created At: {createdAt}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Discovered By : {discoveredBy}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Artifact Type : {type}
-              </li>
-            </ul>
-            <ul className="space-y-3">
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Present Location: {location}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-                Discovered At : {discoveredAt}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-               Added By{authorName}
-              </li>
-              <li className="flex">
-                <span className="mr-1">
-                  <svg
-                    className="w-5 h-5 mt-px text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </span>
-               Author Email{adderEmail}
-              </li>
-            </ul>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Historical Context</p>
+              <p className="text-sm text-gray-600">{context}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Created At</p>
+              <p className="text-sm text-gray-600">{createdAt}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Discovered By</p>
+              <p className="text-sm text-gray-600">{discoveredBy}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Discovered At</p>
+              <p className="text-sm text-gray-600">{discoveredAt}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Location</p>
+              <p className="text-sm text-gray-600">{location}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Artifact Type</p>
+              <p className="text-sm text-gray-600">{type}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Added By</p>
+              <p className="text-sm text-gray-600">{authorName}</p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+              <p className="font-semibold text-gray-700">Adder Email</p>
+              <p className="text-sm text-gray-600">{adderEmail}</p>
+            </div>
           </div>
         </div>
+
         <div>
           <img
-            className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
             src={image}
-            alt=""
+            alt={name}
+            className="rounded-3xl w-full shadow-lg border border-blue-200"
           />
         </div>
       </div>
-       <div className='flex gap-4 mx-auto mt-5'>
-                  <button className='cursor-pointer text-xl font-bold' onClick={handelLike}>{likes ? "👎 Disliked": "👍 Like"}</button>
-                  <p>{count}</p>
-                </div>
+
+      <div className="flex items-center justify-center gap-4 mt-10">
+        <button
+          onClick={handelLike}
+          className="px-6 py-2 bg-[#066fb8] text-white rounded-full font-semibold hover:bg-[#045b96] transition-all"
+        >
+          {likes ? "👎 Disliked" : "👍 Like"}
+        </button>
+        <p className="text-lg font-medium text-gray-700">{count} Likes</p>
+      </div>
     </div>
   );
 };
-
 
 export default ViewDatils;

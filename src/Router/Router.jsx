@@ -46,11 +46,11 @@ export const router = createBrowserRouter([
           element: <PriveteRoute><Updae></Updae></PriveteRoute>
         },
         {
-          path: '/liked-items/:email',
+          path: '/liked-items',
           element: <MyLikedItems></MyLikedItems>
         },
         {
-          path: '/my-artifact/:email',
+          path: '/my-artifact',
           element: <PriveteRoute><MyArtifactsPage></MyArtifactsPage></PriveteRoute>
         },
         {

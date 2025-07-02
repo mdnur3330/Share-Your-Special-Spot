@@ -4,6 +4,7 @@ import './index.css'
 import { RouterProvider } from 'react-router'
 import { router } from './Router/Router'
 import AuthProvider from './Authantication/AuthProvider'
+import "leaflet/dist/leaflet.css";
 
 
 createRoot(document.getElementById('root')).render(
