@@ -15,7 +15,8 @@ const AddSpotForm = () => {
      const formData = new FormData(form);
      const addArtifact = Object.fromEntries(formData.entries());
     addArtifact.likedBy = [];
-    addArtifact.adderEmail = currentUser.email;
+    addArtifact.adderEmail = currentUser?.email;
+    addArtifact.adderName = currentUser?.displayName;
     console.log(addArtifact);
     try {
        const res = await axiosSecure.post(`/artifacts?email=${currentUser.email}`, addArtifact);
@@ -94,7 +95,7 @@ const AddSpotForm = () => {
 
           <button
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#1B1F3B] font-semibold py-3 px-6 rounded-xl shadow transition duration-300"
+            className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#1B1F3B] font-semibold py-3 px-6 rounded-xl shadow transition duration-300 cursor-pointer"
           >
             Submit Spot
           </button>

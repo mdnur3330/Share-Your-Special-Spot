@@ -20,9 +20,7 @@ const Home = () => {
                 <Banner></Banner>
 
             </section>
-            {/* <section>
-                <FarmarMotion></FarmarMotion>
-            </section> */}
+         
             <section className='py-20'>
                <ShortArtifact></ShortArtifact>
             </section>

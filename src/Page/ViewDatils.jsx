@@ -17,6 +17,7 @@ const ViewDatils = () => {
     image,
     description,
     adderEmail,
+    adderName,
     location,
     likedBy,
   } = singalArtifact || {};
@@ -67,8 +68,12 @@ const ViewDatils = () => {
                 <p className="text-sm text-gray-600">{location}</p>
               </div>
               <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
-                <p className="font-semibold text-gray-700">Added By</p>
+                <p className="font-semibold text-gray-700">Adder Email</p>
                 <p className="text-sm text-gray-600">{adderEmail}</p>
+              </div>
+              <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                <p className="font-semibold text-gray-700">Adder Name</p>
+                <p className="text-sm text-gray-600">{adderName}</p>
               </div>
             </div>
           </div>
@@ -85,7 +90,7 @@ const ViewDatils = () => {
         <div className="flex items-center justify-center gap-4 mt-10">
           <button
             onClick={handelLike}
-            className={`flex items-center gap-2 px-6 py-2 rounded-full font-semibold transition-all border ${
+            className={`cursor-pointer flex items-center gap-2 px-6 py-2 rounded-full font-semibold transition-all border ${
               likes ? 'bg-red-100 text-red-600 border-red-300 hover:bg-red-200' : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
             }`}
           >

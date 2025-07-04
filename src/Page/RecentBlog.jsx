@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import logo1 from '../assets/photo/see-even-2407631_1280.jpg'
+import logo1 from '../assets/photo/img1.jpg'
 import logo2 from '../assets/photo/clouds-3876901_1280.jpg'
 import logo3 from '../assets/photo/coxs-bazar-2885043_1280.jpg'
 
@@ -12,7 +12,7 @@ const stories = [
     name: "Nusrat Jahan",
     place: "Sajek Valley",
     story: "The misty mornings and green hills of Sajek still touch my soul. Truly a hidden paradise in Bangladesh.",
-    image: logo2
+    image: logo1
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const stories = [
     name: "Mahin Islam",
     place: "Sundarbans",
     story: "Cruising through the river and hearing the sounds of the forest was truly thrilling and peaceful at the same time.",
-    image: logo1
+    image: logo2
   },
 ];
 
