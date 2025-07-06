@@ -1,55 +1,74 @@
-# ByteVault 🏛️
+### 🧭 Explore Together, One Spot at a Time
 
-**ByteVault** is a digital gallery web application that showcases a wide range of artifacts — from iconic computer tech to historical and cultural treasures. The platform is designed to allow users to view, explore, and manage artifact data through a clean and interactive interface.
+# 🌍 WanderNest
 
----
-
-## 🌐 Live Website
-
-🔗 https://historical-artifacts-tra-aacdc.web.app/
+**Share Your Travel Spot** — A full-stack MERN web application where explorers from around the world can share and discover stunning travel destinations. Whether it's a serene lake, a mountain trek, or a cultural heritage site, WanderNest helps you turn your adventures into inspiration.
 
 ---
 
-## 🎯 Purpose
+## 🔗 Live Website
 
-The purpose of ByteVault is to digitally preserve and showcase diverse artifacts, making them accessible to everyone. It helps users:
-
-- Explore historical and tech-related artifacts
-- Read descriptions and view high-quality images
-- Add, edit, or delete artifacts (CRUD functionality)
-- Enjoy a responsive and user-friendly experience
+https://historical-artifacts-tra-aacdc.web.app/
 
 ---
 
-## ⚙️ Key Features
+## 📝 Description
 
-- 🔐 **Firebase Authentication** – Secure user login with email & password
-- 📦 **Firebase Hosting** – Live deployment with fast delivery
-- ✅ **CRUD Operations** – Add, edit, delete, and view artifacts
-- 🔍 **Search & Sort** – Easily filter and sort artifact lists
-- 🌙 **Dark/Light Theme Toggle** – User-selectable themes
-- 💬 **Like Button** – Interactive like system
-- 🎨 **Framer Motion** – Smooth animations for better UX
-- 📱 **Fully Responsive** – Optimized for all devices
+WanderNest is a user-driven travel sharing platform for travelers, bloggers, and enthusiasts. Users can:
+
+- 📍 Share their favorite travel spots with photo and description  
+- ✍️ Write short personal notes or travel tips  
+- 🧑‍💼 Register/Login securely (JWT auth)  
+- ❤️ Like other people's shared destinations  
+- 📋 Manage their shared content (Update/Delete)  
+- 🌐 Explore all other travel posts from the global community  
+- 📱 Use the app from any device (responsive design)  
+- 🎨 Enjoy smooth animations and a modern UI
 
 ---
 
-## 🛠️ Tech Stack & NPM Packages
+## ✨ Key Features
 
-### 🔧 Frontend
-- `React.js` – UI Framework
-- `react-router-dom` – Client-side routing
-- `axios` – HTTP requests
-- `framer-motion` – Animation library
-- `tailwindcss` – Utility-first CSS framework
-- `react-icons` – Icon library
-- `sweetalert2` – Alert and confirmation dialogs
+- 🔐 JWT-based authentication system
+- 📝 Add / update / delete travel spots
+- ❤️ Like system for community engagement
+- 📸 Image upload and cloud hosting
+- 🔍 Search functionality to find places by title or description
+- 🧾 Form validation for inputs
+- 🎨 Framer Motion-powered animated UI
+- 📱 Mobile-first responsive design
+- 🚀 Firebase & Vercel deployment
 
-### 🔧 Backend
-- `Node.js` & `Express.js` – Server-side API
-- `MongoDB` – Database for storing artifact data
+---
 
-### 🔧 Firebase
-- Firebase Authentication
-- Firebase Hosting
+## 🛠️ Tech Stack
 
+### Frontend:
+- **React.js**
+- **React Router DOM**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Axios**
+
+### Backend:
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **JWT (JSON Web Token)**
+- **Cors, Dotenv**
+
+### Hosting:
+- **Client:** Firebase  
+- **Server:** Vercel
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow the steps to run the project locally:
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/wandernest.git
+cd wandernest
